@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <title>Laravel Jetstream inertia and vue - @yield('page')</title>
+        <title>@yield('page') - {{ config('app.name', 'Ticketit') }}</title>
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -36,11 +36,15 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+                @yield('content')
             </main>
         </div>
 
         @stack('modals')
 
         @livewireScripts
+
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        @yield('footer')
     </body>
 </html>
